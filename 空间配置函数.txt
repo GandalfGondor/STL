@@ -1,0 +1,20 @@
+空间配置函数allocate()
+
+static void * allocate(size_t n)
+{
+	obj * volatile * my_free_list;
+	obj * result;
+	if(n>(size_t) _MAX_BYTES)
+	{
+		return(malloc_alloc::allocate(n))
+	}
+	my_free_list = free_list+FREELIST_INDEX(n);
+	result = *my_free_list;
+	if(result == 0)
+	{
+		void *r = refill(ROUND_UP(n));
+		return r;
+	}
+	*my_free_list = result ->free_list_link;
+	return (result);
+}
