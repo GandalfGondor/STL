@@ -16,7 +16,7 @@ private:
 	static obj* volatile free_list[_NFREELISTS];
 	static size_t FREELIST_INDEX(size_t bytes)
 	{
-		return ((bytes)+_ALIGN-1/_ALIGN-1);
+		return ((bytes+_ALIGN-1)/_ALIGN-1);
 	}
 	//返回大小为n对象，并加入n到其他区块
 	static void *refill(size_t n);
