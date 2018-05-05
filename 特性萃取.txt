@@ -1,0 +1,20 @@
+利用class template来萃取迭代器特性
+template<class I>
+struct iterator_traits
+{
+	typedef typeneame I::value_type value_type;
+};
+上述是对已经拥有value_type的情况而言，但是我们可以通过特化的思想来进行partial specializations
+template<class T>
+struct iterator_traits<T*>
+{
+	typedef T value_type；
+}
+上述可以完成对原生指针的类型萃取
+
+template<class T
+stuct iterator_traits<const T*>
+{
+	typedef T value_type;
+}
+上述可以萃取出const T中的类型T,针对指向常数对象的指针。
