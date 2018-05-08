@@ -1,0 +1,17 @@
+RB-tree 红黑树二色，拥有左右子节点，同时节点分为两层，迭代器也分为两层。
+RB-tree定义专属的空间配置器，每次配置一个节点大小。
+树状结构的各种操作，为了防止边界情况的发生，走到根节点需要进行特殊化处理，为了简化操作，
+需要再特别设计一个父节点，名为header。
+
+set特性是所有元素都会根据元素的键值自动被排序。set元素不像map那样可以同时拥有实值和键值，
+set元素的键值就是实值。set操作行为基本上是转调用了RB-tree的操作行为。
+面对关联式容器，应该使用其所提供的find函数来搜寻元素。
+map的特性是，所有元素都会根据元素的键值自动被排序，map的所有元素都是pair，同时拥有实值
+value和键值key。pair的第一个元素是键值，第二元素被视为实值。map不允许两个相同的键值，
+insert操作返回型别都是pair<>型
+
+multiset的特性和set完全相同，唯一的差别是它允许键值重复。
+
+hashtable 二次探测，开链，其buckets以vector来完成，是由linked-list和hashtable组合而成。
+hashset只是调用hashtable，但是hash没有自动排序，hash对于很多型别无法处理。
+hash_multimap hash_multiset等等都是以hash为底层来实现的。

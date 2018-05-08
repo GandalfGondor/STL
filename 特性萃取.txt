@@ -18,3 +18,5 @@ stuct iterator_traits<const T*>
 	typedef T value_type;
 }
 上述可以萃取出const T中的类型T,针对指向常数对象的指针。
+
+__type_traits中完成函数派送任务，需要知道该元素型别是否是trival ctor来使用 memcpy()或者memmove()
