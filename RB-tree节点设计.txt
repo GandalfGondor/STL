@@ -13,5 +13,6 @@ insert操作返回型别都是pair<>型
 multiset的特性和set完全相同，唯一的差别是它允许键值重复。
 
 hashtable 二次探测，开链，其buckets以vector来完成，是由linked-list和hashtable组合而成。
+表格重建与否是根据元素个数如果大于vector就会重建。
 hashset只是调用hashtable，但是hash没有自动排序，hash对于很多型别无法处理。
 hash_multimap hash_multiset等等都是以hash为底层来实现的。
